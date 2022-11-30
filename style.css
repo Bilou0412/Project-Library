@@ -48,8 +48,9 @@ body{
     justify-self: center;
     
 }
-.body .card li{
+.body .card ul li{
     list-style-type: none;
+    padding: 10px;
 }
 .body .card ul{
     padding: 0;
