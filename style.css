@@ -92,11 +92,17 @@ body{
     font-size: xx-large;
 }
 .form form fieldset{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
     border: none;
     height: 90%;
     width: 90%;
     padding: 0;
     margin: 0;
+    margin-top: 60px;
 }
 .form form fieldset legend{
     position: absolute;
@@ -113,4 +119,11 @@ body{
 }
 .form form fieldset .close:hover{
     cursor: pointer;
+}
+
+.form form fieldset input,
+.form form fieldset label{
+    width: 80%;
+    height: 20px;
+    font-size: medium;
 }
