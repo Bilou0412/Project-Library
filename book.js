@@ -1,5 +1,7 @@
 
-let myLibrary = [];
+const theHobbit = new book("The Hobbit","J.R.R. Tolkien","296","not read yet");
+const theHobbit2 = new book("The Hobbit","J.R.R. Tolkien","295","not read yet");
+let myLibrary = [theHobbit,theHobbit2];
 
 function book(title,author,pages,read){
     this.title = title;
@@ -12,9 +14,22 @@ function book(title,author,pages,read){
     return console.log(this.info());
 }
 
-function addBookToLibrary() {
-  myLibrary.push();
+function addBookToLibrary(book) {
+  myLibrary.push(book);
 }
+
+function displayMyLibrary(){
+    const bodyClass =document.querySelector('.body')
+    for(i = 0 ;i < myLibrary.length ;i++){
+        const div = document.createElement('div');
+        div.classList.add('card');
+        div.innerHTML = `<ul><li>Titre : ${myLibrary[i].title}</li><li>Auteur : ${myLibrary[i].author}</li><li>Pages :${myLibrary[i].pages}</li><li>Lu :${myLibrary[i].read}</li></ul>`
+        bodyClass.appendChild(div)
+    }
+}
+
+
+
 const body = document.querySelector('body');
 
 function openForm(){
