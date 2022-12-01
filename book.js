@@ -25,12 +25,18 @@ function displayMyLibrary(){
     for(i = 0 ;i < myLibrary.length ;i++){
         const div = document.createElement('div');
         div.classList.add('card');
-        div.innerHTML = `<ul><li>Titre<br><em>${myLibrary[i].title}</em></li><li>Auteur<br><em>${myLibrary[i].author}</em></li><li>Pages<br><em>${myLibrary[i].pages}</em></li><li>Lu<br><em>${myLibrary[i].read}</em></li></ul>`
+        div.innerHTML = `<ul><li>Titre<br><em>${myLibrary[i].title}</em></li><li>Auteur<br><em>${myLibrary[i].author}</em></li><li>Pages<br><em>${myLibrary[i].pages}</em></li><li>Lu<br><em>${myLibrary[i].read}</em></li></ul><button class="delete" data-index = "${i}" onclick="deleteCard(${i});">Supprimer</button>`
         bodyClass.appendChild(div);
     }
 }
 
 const body = document.querySelector('body');
+
+function deleteCard(index){
+    myLibrary.splice(index,1);
+    clearCard();
+    displayMyLibrary();
+}
 
 function openForm(){
     const div = document.createElement('div');
@@ -68,6 +74,8 @@ const btnOpenForm = document.querySelector('.btn');
 btnOpenForm.addEventListener('click',function(){
     openForm();
 });
+
+
 
 
 
