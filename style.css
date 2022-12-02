@@ -86,10 +86,7 @@ body{
 .body .card ul{
     padding: 0;
 }
-.body .card:hover ul li,
-.body .card:hover,
-.btn:hover,
-.body .card:hover ul li em{
+.btn:hover{
     background-color: #2d2470;
     cursor: pointer;
     color:#edf1ff;

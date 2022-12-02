@@ -51,12 +51,11 @@ function deleteCard(index){
 function openForm(){
     const div = document.createElement('div');
     div.classList.add('form');
-    div.innerHTML = '<form action=""><fieldset><legend>BOOK</legend><div class="close">❌</div><label for="titre">Titre</label><input type="text" id="titre" name="title"><label for="auteur">Auteur</label><input type="text" id="auteur" name="author"><label for="pages">Pages</label><input type="number" id="pages" name="pages"><label for="lu">Lu</label><select id="lu"><option value="oui">oui</option><option value="non" selected>non</option></select><button type="submit">Valider</button></fieldset></form>';
+    div.innerHTML = '<form action=""><fieldset><legend>BOOK</legend><div class="close">❌</div><label for="titre">Titre</label><input type="text" id="titre" name="title" required><label for="auteur" >Auteur</label><input type="text" id="auteur" name="author" required><label for="pages" >Pages</label><input type="number" id="pages" name="pages"required><label for="lu">Lu</label><select id="lu"><option value="oui">oui</option><option value="non" selected>non</option></select><button type="submit">Valider</button></fieldset></form>';
     body.appendChild(div);
     const cross = document.querySelector('.close')
     const submitFormBtn = document.querySelector('.form > form > fieldset > button')
     submitFormBtn.addEventListener('click',function(e){
-        e.preventDefault();
         getValue();
         closeForm();
     })
