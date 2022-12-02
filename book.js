@@ -11,6 +11,16 @@ function book(title,author,pages,read){
     return console.log(this.info());
 }
 
+book.prototype.changeRead = function(){
+    if(this.read == "oui"){
+        this.read = "non"
+    }else{
+        this.read = "oui"
+    }
+    clearCard();
+    displayMyLibrary();
+}
+
 function addBookToLibrary(book) {
     myLibrary.push(book);
     clearCard();
@@ -25,7 +35,7 @@ function displayMyLibrary(){
     for(i = 0 ;i < myLibrary.length ;i++){
         const div = document.createElement('div');
         div.classList.add('card');
-        div.innerHTML = `<ul><li>Titre<br><em>${myLibrary[i].title}</em></li><li>Auteur<br><em>${myLibrary[i].author}</em></li><li>Pages<br><em>${myLibrary[i].pages}</em></li><li>Lu<br><em>${myLibrary[i].read}</em></li></ul><button class="delete" data-index = "${i}" onclick="deleteCard(${i});">Supprimer</button>`
+        div.innerHTML = `<ul><li>Titre<br><em>${myLibrary[i].title}</em></li><li>Auteur<br><em>${myLibrary[i].author}</em></li><li>Pages<br><em>${myLibrary[i].pages}</em></li><li>Lu<br><em><button class="read" onclick="myLibrary[${i}].changeRead();">${myLibrary[i].read}</button></em></li></ul><button class="delete" data-index = "${i}" onclick="deleteCard(${i});">Supprimer</button>`
         bodyClass.appendChild(div);
     }
 }
@@ -41,7 +51,7 @@ function deleteCard(index){
 function openForm(){
     const div = document.createElement('div');
     div.classList.add('form');
-    div.innerHTML = '<form action=""><fieldset><legend>BOOK</legend><div class="close">❌</div><label for="titre">Titre</label><input type="text" id="titre" name="title"><label for="auteur">Auteur</label><input type="text" id="auteur" name="author"><label for="pages">Pages</label><input type="number" id="pages" name="pages"><label for="lu">Lu</label><input type="text" id="lu" name="read"><button type="submit">Valider</button></fieldset></form>';
+    div.innerHTML = '<form action=""><fieldset><legend>BOOK</legend><div class="close">❌</div><label for="titre">Titre</label><input type="text" id="titre" name="title"><label for="auteur">Auteur</label><input type="text" id="auteur" name="author"><label for="pages">Pages</label><input type="number" id="pages" name="pages"><label for="lu">Lu</label><select id="lu"><option value="oui">oui</option><option value="non" selected>non</option></select><button type="submit">Valider</button></fieldset></form>';
     body.appendChild(div);
     const cross = document.querySelector('.close')
     const submitFormBtn = document.querySelector('.form > form > fieldset > button')
